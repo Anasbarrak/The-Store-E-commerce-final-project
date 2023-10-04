@@ -54,8 +54,6 @@ export const RegisterUser = (data, navigate)=> async (dispatch)=>{
          }
          export const logout=(navigate)=>{
             navigate('/')
-            return ({type:LOG_OUT})}
-            
+            return ({type:LOG_OUT})};
 
-        
-
+    

@@ -1,24 +1,24 @@
-import React, { useState } from "react";
 import "./Login.css";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { LoginUser, getCurrent } from "../redux/actions/ActionUser";
-
+import { LoginUser } from "../redux/actions/ActionUser";
 
 const Login = () => {
+
     const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
     const dispatch= useDispatch();
     const navigate = useNavigate();
-    const handleGetCurrent= (getCurrent);
     const handleLogin = () => {
       var user = {
         Email: email,
         Password: password
       }
       console.log(user)
-    dispatch(LoginUser(user, navigate));
+      dispatch(LoginUser(user, navigate));
     }
+    
   return (
     <>
       <div className="wrapper">
@@ -30,7 +30,6 @@ const Login = () => {
       required=""
       autoFocus=""
       onChange={(e)=>setEmail(e.target.value)}
-
     />
     <input
       type="password"
@@ -48,11 +47,11 @@ const Login = () => {
       />{" "}
       Remember me
     </label>
-    <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={handleGetCurrent && handleLogin}>
+    <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={handleLogin}> 
       Login
     </button>
     <p className="credit" style={{ color: "greenyellow" }}>
-        Developed by{" "}
+        Developed by{" Mohamed Anas Barrak "}
         <a href="https://www.github.com/Anasbarrak" target="_blank">
           Mohamed Anas Barrak
         </a>
@@ -60,7 +59,8 @@ const Login = () => {
 </div>
 
     </>
-  );
+ );
 };
 
-export default Login;
+
+export default Login

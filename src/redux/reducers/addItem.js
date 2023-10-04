@@ -1,3 +1,6 @@
+import { LOG_OUT } from "../Actiontype/Actiontype";
+import { delItem } from "../actions";
+
 const addItem = [];
 
 const addItems = (state = addItem, action) => {
@@ -10,6 +13,8 @@ const addItems = (state = addItem, action) => {
             return state = state.filter((x)=>{
                 return x.id !== action.payload.id
             })
+            case LOG_OUT:
+                return state=[]
         
         default: return state;
    

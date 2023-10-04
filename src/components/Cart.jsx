@@ -32,8 +32,8 @@ const Cart = () => {
             </div>
             <div className="col-md-4">
               <h3>{cartItem.product.title}</h3>
-              <p className="lead fw-bold">${cartItem.product.price}</p>
-              <p className="lead fw-bold">quantity: {cartItem.quantity}</p>
+              <p className="lead fw-bold">TND{cartItem.product.price}</p>
+              <p className="lead fw-bold">Quantity: {cartItem.quantity}</p>
             </div>
           </div>
         </div>

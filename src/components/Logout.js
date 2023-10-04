@@ -10,11 +10,10 @@ const Logout = (user) => {
   return (
     <>
       <div className="wrapper">
-    <h2 className="form-signout-heading">Log Out</h2>
+    <h2 className="form-signout-heading">Logout</h2>
     <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={navigate} >
-      Logged Out Successfully
     </button>
-</div>
+ </div>
     </>
   );
 };

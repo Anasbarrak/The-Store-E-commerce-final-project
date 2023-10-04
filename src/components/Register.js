@@ -102,7 +102,6 @@ function Register() {
                 >
                   <button onClick={handleRegister}>Register</button>
                 </div>
-              
             </div>
           </div>
         </div>

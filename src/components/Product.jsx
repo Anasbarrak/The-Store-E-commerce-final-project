@@ -20,7 +20,7 @@ dispatch(get_products())
           <h6 class="card-description" style={{textAlign: 'left'}}>{item.desc}</h6>
           <p className="lead">TND{item.price}</p>
          
-          <NavLink to={`/products/${item._id}`} class="btn btn-outline-primary" variant="primary">
+          <NavLink to={`/products/${item._id}`} class="btn btn-outline-primary" variant="primary" >
             Add to Cart
           </NavLink>
         </div>

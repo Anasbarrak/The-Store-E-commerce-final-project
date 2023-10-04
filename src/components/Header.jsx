@@ -13,7 +13,7 @@ const Header = () => {
   useEffect(() => {
    dispatch(getCurrent())
   }, []);
-  const user=useSelector(state=>state.Reducer.user)
+  const user = useSelector(state => state.Reducer.user )
  console.log(user)
   return (
     <>
@@ -56,7 +56,7 @@ const Header = () => {
             <NavLink className="navbar-brand mx-auto fw-bold" to="/">
               The Store
             </NavLink>
-            {!(user.name)?
+            {!(user?.name)?
             <>
             <NavLink to='/login'>
             <button

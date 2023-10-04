@@ -12,7 +12,7 @@ const Checkout = () => {
         <div>
           <h6 className="my-0">{item.product.title}</h6>
         </div>
-        <span className="text-muted">${item.product.price}</span>
+        <span className="text-muted">TND{item.product.price}</span>
       </li>
     );
   };
@@ -32,8 +32,8 @@ const Checkout = () => {
               {state.map(itemList)}
 
               <li className="list-group-item d-flex justify-content-between">
-                <span>Total (USD)</span>
-                <strong>${total}</strong>
+                <span>Total (TND)</span>
+                <strong>TND{total}</strong>
               </li>
             </ul>
 
@@ -221,7 +221,7 @@ const Checkout = () => {
                   id="save-info"
                 />
                 <label className="form-check-label" htmlFor="save-info">
-                  Save this information htmlFor next time
+                  Save this information for next time
                 </label>
               </div>
 

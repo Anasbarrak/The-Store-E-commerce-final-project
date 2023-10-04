@@ -60,12 +60,12 @@ exports.loginUser= async(req, res)=>{
     try {
         const user = await users.findOne({Email})
         if (!user){
-            res.status(400).send({errors:[{message:'Email does not exist'}]})
+            res.status(400).send({errors:[{msg:'Email does not exist'}]})
         }
         else {
             const Compare = bcrypt.compareSync(Password, user.Password)
             if(!Compare){
-                res.status(400).send({errors:[{message:'Wrong password'}]})
+                res.status(400).send({errors:[{msg:'Wrong password'}]})
             }
             else {
                 const data = {
