@@ -1,9 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import {PaymentElement} from '@stripe/react-stripe-js';
 
 const Checkout = () => {
+  const [reDeem, setreDeem]=useState(0);
+  const [firstName, setfirstName]=useState('');
+  const [lastName, setlastName]=useState('');
+  const [userName, setuserName]=useState('');
+  const [email, setEmail]=useState('');
+  const [address, setadress]=useState('');
+  const [address2, setaddress2]=useState('');
+  const [Zip, setZip]=useState(0);
+  const [Name_On_Card, setName_On_Card]=useState('');
+  const [Credit_Card_Number, setCredit_Card_Number]=useState('');
+  const [Expiration_Date, setExpiration_Date]= useState(0);
+  const [CVV, setCVV]=useState(0)
+  var elements={
+    reDeem: reDeem,
+    firstName: firstName,
+    lastName: lastName,
+    userName: userName,
+    email: email,
+    address: address,
+    address2: address2,
+    Zip: Zip,
+    Name_On_Card: Name_On_Card,
+    Credit_Card_Number: Credit_Card_Number,
+    Expiration_Date: Expiration_Date,
+    CVV: CVV
+  }
+  console.log(elements)
+  const handleCheckout=()=>{
+    
+    
+  }
   const state = useSelector((state) => state.addItem);
-
   var total = 0;
   const itemList = (item) => {
     total = total + item.product.price*item.quantity;
@@ -43,6 +74,7 @@ const Checkout = () => {
                   type="text"
                   className="form-control"
                   placeholder="Promo code"
+                  onChange={(e)=>setreDeem(e.target.value)}
                 />
                 <button type="submit" className="btn btn-secondary">
                   Redeem
@@ -64,6 +96,7 @@ const Checkout = () => {
                     id="firstName"
                     placeholder=""
                     defaultValue=""
+                    onChange={(e)=>setfirstName(e.target.value)}
                   />
                   <div className="invalid-feedback">
                     Valid first name is required.
@@ -80,6 +113,7 @@ const Checkout = () => {
                     id="lastName"
                     placeholder=""
                     defaultValue=""
+                    onChange={(e)=>setlastName(e.target.value)}
                   />
                   <div className="invalid-feedback">
                     Valid last name is required.
@@ -98,6 +132,7 @@ const Checkout = () => {
                       id="username"
                       placeholder="Username"
                       required=""
+                      onChange={(e)=>setuserName(e.target.value)}
                     />
                     <div className="invalid-feedback">
                       Your username is required.
@@ -115,6 +150,7 @@ const Checkout = () => {
                     id="email"
                     placeholder="you@example.com"
                     required=""
+                    onChange={(e)=>setEmail(e.target.value)}
                   />
                   <div className="invalid-feedback">
                     Please enter a valid email address HTML For shipping updates.
@@ -131,6 +167,7 @@ const Checkout = () => {
                     id="address"
                     placeholder="1234 Main St"
                     required=""
+                    onChange={(e)=>setadress(e.target.value)}
                   />
                   <div className="invalid-feedback">
                     Please enter your shipping address.
@@ -146,6 +183,7 @@ const Checkout = () => {
                     className="form-control"
                     id="address2"
                     placeholder="Apartment or suite"
+                    onChange={(e)=>setaddress2(e.target.value)}
                   />
                 </div>
 
@@ -196,6 +234,7 @@ const Checkout = () => {
                     id="zip"
                     placeholder=""
                     required=""
+                    onChange={(e)=>setZip(e.target.value)}
                   />
                   <div className="invalid-feedback">Zip code required.</div>
                 </div>
@@ -280,6 +319,7 @@ const Checkout = () => {
                     id="cc-name"
                     placeholder=""
                     required=""
+                    onChange={setName_On_Card}
                   />
                   <small className="text-muted">
                     Full name as displayed on card
@@ -299,6 +339,7 @@ const Checkout = () => {
                     id="cc-number"
                     placeholder=""
                     required=""
+                    onChange={setCredit_Card_Number}
                   />
                   <div className="invalid-feedback">
                     Credit card number is required
@@ -315,8 +356,9 @@ const Checkout = () => {
                     id="cc-expiration"
                     placeholder=""
                     required=""
+                    onChange={setExpiration_Date}
                   />
-                  <div className="invalid-feedback">
+                  <div className="invalid-feedback" >
                     Expiration date required
                   </div>
                 </div>
@@ -331,14 +373,15 @@ const Checkout = () => {
                     id="cc-cvv"
                     placeholder=""
                     required=""
+                    onChange={setCVV}
                   />
                   <div className="invalid-feedback">Security code required</div>
                 </div>
               </div>
 
               <hr className="my-4" />
-
-              <button className="w-100 btn btn-primary btn-lg" type="submit">
+              
+              <button className="w-100 btn btn-primary btn-lg" type="submit" onClick={handleCheckout}>
                 Continue to checkout
               </button>
             </form>

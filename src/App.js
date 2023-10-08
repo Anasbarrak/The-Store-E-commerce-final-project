@@ -14,6 +14,7 @@ import Login from './components/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AlertError from './components/AlertError';
 import Logout from './components/Logout';
+import StripePayment from './components/StripePayment';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/products/:id" element={<ProductDetail/>} />
         <Route path="/cart" element = {<Cart/>} />
         <Route path="/checkout" element= {<Checkout/>} />
+        <Route path="/" element={<StripePayment />} /> 
         <Route path="/about" element = {<About/>} />
         <Route path="/contact" element = {<Contact/>} />
         <Route path='/register' element = {<Register/>} />
