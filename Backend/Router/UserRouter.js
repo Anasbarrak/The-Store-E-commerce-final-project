@@ -3,6 +3,7 @@ const {getUSER, deleteUSER, register, loginUser, logoutUser} = require("../Contr
 const express=require("express");
 const { loginValidation, validation, registerValidation } = require("../Middleware/Validation");
 const { isAuth } = require("../Middleware/IsAuth");
+const { stripePayment } = require("../Controller/StripeController");
 const userRout=express.Router();
 
 userRout.get("/get",getUSER);
@@ -13,6 +14,7 @@ userRout.get('/getuser', isAuth, (req, res)=>{
     res.send({user: req.user})
 })
 userRout.post('/logout', validation, logoutUser)
+
 module.exports=userRout
 
 

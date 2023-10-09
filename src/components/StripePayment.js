@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button"; 
 import Card from "react-bootstrap/Card"; 
  
+
 function StripePayment() { 
   const [product, setProduct] = useState({ 
     name: "Go FullStack with KnowledgeHut", 
@@ -12,7 +13,11 @@ function StripePayment() {
       "This beginner-friendly Full-Stack Web Development Course is offered online in blended learning mode, and also in an on-demand self-paced format.", 
     quantity: 1, 
   }); 
- 
+  const makePayment = async () => {  
+    const body = { product }; 
+    const headers = { 
+      "Content-Type": "application/json", 
+    }; 
   return ( 
     <Card style={{ width: "20rem" }}> 
       <Card.Img 
@@ -28,4 +33,6 @@ function StripePayment() {
     </Card> 
   ); 
 }
-export default StripePayment;
+}
+
+export default StripePayment

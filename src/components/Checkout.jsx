@@ -11,6 +11,7 @@ const Checkout = () => {
   const [address, setadress]=useState('');
   const [address2, setaddress2]=useState('');
   const [Zip, setZip]=useState(0);
+  const [Same_shipping_address, setSame_shipping_address]=useState()
   const [Name_On_Card, setName_On_Card]=useState('');
   const [Credit_Card_Number, setCredit_Card_Number]=useState('');
   const [Expiration_Date, setExpiration_Date]= useState(0);
@@ -24,6 +25,7 @@ const Checkout = () => {
     address: address,
     address2: address2,
     Zip: Zip,
+    Same_shipping_address: Same_shipping_address,
     Name_On_Card: Name_On_Card,
     Credit_Card_Number: Credit_Card_Number,
     Expiration_Date: Expiration_Date,
@@ -258,6 +260,7 @@ const Checkout = () => {
                   type="checkbox"
                   className="form-check-input"
                   id="save-info"
+                  onChange={setSame_shipping_address}
                 />
                 <label className="form-check-label" htmlFor="save-info">
                   Save this information for next time
@@ -270,12 +273,11 @@ const Checkout = () => {
 
               <div className="my-3">
                 <div className="form-check">
-                  <input
+                <input
                     id="credit"
                     name="paymentMethod"
                     type="radio"
                     className="form-check-input"
-                    checked=""
                     required=""
                   />
                   <label className="form-check-label" htmlFor="credit">
@@ -365,7 +367,7 @@ const Checkout = () => {
 
                 <div className="col-md-3">
                   <label htmlFor="cc-cvv" className="form-label">
-                    CVV
+                    CVC
                   </label>
                   <input
                     type="text"
@@ -382,7 +384,7 @@ const Checkout = () => {
               <hr className="my-4" />
               
               <button className="w-100 btn btn-primary btn-lg" type="submit" onClick={handleCheckout}>
-                Continue to checkout
+                Pay
               </button>
             </form>
           </div>
