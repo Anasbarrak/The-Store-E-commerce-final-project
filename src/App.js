@@ -15,6 +15,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AlertError from './components/AlertError';
 import Logout from './components/Logout';
 import StripePayment from './components/StripePayment';
+import Success from './components/Success';
+import Cancel from './components/Canceled';
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
         <Route path="/products/:id" element={<ProductDetail/>} />
         <Route path="/cart" element = {<Cart/>} />
         <Route path="/checkout" element= {<Checkout/>} />
+        <Route path="/success" element={<Success/>} /> 
+        <Route path="/cancel" element={<Cancel/>} /> 
         <Route path="/" element={<StripePayment />} /> 
         <Route path="/about" element = {<About/>} />
         <Route path="/contact" element = {<Contact/>} />

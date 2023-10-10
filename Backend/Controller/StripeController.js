@@ -1,6 +1,6 @@
 const api_key = require('../Configuration/Config');
 const stripe = require("stripe")(api_key.stripePayment);
-const Course = require('../Model/')
+const Course = require('../Model/UserModel')
 
 exports.stripeCourse =(req,res)=>{
     const courseId = req.params.courseId;

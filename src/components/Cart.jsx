@@ -3,6 +3,10 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { delItem } from "../redux/actions";
 import { NavLink } from "react-router-dom";
+import { loadStripe } from "@stripe/stripe-js";
+import { Button } from "react-bootstrap";
+import axios from "axios";
+
 
 const Cart = () => {
   const state = useSelector((state) => state.addItem);
@@ -11,7 +15,14 @@ const Cart = () => {
   const handleClose = (item) => {
     dispatch(delItem(item));
   };
-
+  const handleCheckout = () => { 
+    axios.post('/stripe/create-checkout-session',{state})
+    .then((res)=> {
+      if(res.data.url){
+        window.location.href = res.data.url
+      }
+    }).catch((error)=>console.log(error.message));
+  };
   const cartItems = (cartItem) => {
     return (
       <div className="px-4 my-5 bg-light rounded-3" key={cartItem.product.id}>
@@ -57,12 +68,12 @@ const Cart = () => {
     return (
       <div className="container">
         <div className="row">
-          <NavLink
-            to="/checkout"
+          <Button
             className="btn btn-outline-primary mb-5 w-25 mx-auto"
+            onClick={handleCheckout}
           >
             Proceed To checkout
-          </NavLink>
+          </Button>
         </div>
       </div>
     );
