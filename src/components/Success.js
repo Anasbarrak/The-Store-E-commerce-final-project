@@ -8,7 +8,7 @@ function Success() {
       <p> 
         We appreciate your business! If you have any questions, please email us 
         at 
-        <a href="mailto:orders@example.com">orders@example.com</a>. 
+        <a href=" mailto:orders@example.com"> contact@thestore.com.tn</a>. 
       </p> 
       <div> 
       </div> 
